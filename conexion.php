@@ -15,7 +15,7 @@ class Conexion
 
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		retun $db;
+		/*retun $db;*/
 
 		echo "Conexion realizada";
 
