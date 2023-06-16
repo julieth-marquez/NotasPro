@@ -19,7 +19,7 @@ public function __construct()
 
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		return $db;
+		//return $db;
 
 		echo "Conexion realizada";
 
