@@ -1,30 +1,30 @@
 <?php
-include_once('../conexion.php');
-class Administrador extends Conexion();
+include_once('../../conexion.php');
+class Administrador extends Conexion
 {
 	public function __construct()
 	{
 		$this->db = parent::__construct();
 	}
 	//inserta un ususario
-	public function agregarad add($Nombread,$Apellidoad,$Usuarioad,$passwordad,$Perfilad,$Estadoad)
+	public function agregaradadd($Nombread,$Apellidoad,$Usuarioad,$passwordad,$Perfil,$Estado)
 	{
-		$statement = $this->bd->prepare("INSERT INTO  usuarios (Nombreusu,Aoellidousu,Usuario,Passwordusu,Perfil,Estado) values(:Nombread, :Apellidoad, :Usuarioad, :passwordad, :'Administrador', :'Activo')");
+		$statement = $this->db->prepare("INSERT INTO  usuarios (Nombreusu,Aoellidousu,Usuario,Passwordusu,Perfil,Estado) values(:Nombread, :Apellidoad, :Usuarioad, :passwordad, :Perfil, :Estado)");
 
-		$statement->binParam(":Nombread",$Nombread);
-		$statement->binParam(":Apellidoad",$Apellidoad);
-		$statement->binParam(":Usuarioad",$Usuarioad);
-		$statement->binParam(":passwordad",$passwordad);
-		$statement->binParam(":Perfilad",$Perfilad);
-		$statement->binParam(":Estadoad",$Estadoad);
+		$statement->bindParam(':Nombread',$Nombread);
+		$statement->bindParam(':Apellidoad',$Apellidoad);
+		$statement->bindParam(':Usuarioad',$Usuarioad);
+		$statement->bindParam(':passwordad',$passwordad);
+		$statement->bindParam(':Perfil',$Perfil);
+		$statement->bindParam(':Estado',$Estado);
 		if($statement->execute())
 		{
 			echo "Usuario registrado";
-			header('Location:  ../pages/idex.php')
+			header('Location:  ../pages/idex.php');
 		}else
 		{
 			echo "No se puede realizar el registro";
-			header('Location: ../pages/agregar.php')
+			header('Location: ../pages/agregar.php');
 		}
 	}
 	//funcion para mostrar o seleccionar todos los usuarios con el rol administrador 
@@ -56,12 +56,12 @@ class Administrador extends Conexion();
 	public function updatead($Id,$Nombread,$Apellidoad,$Usuarioad,$passwordad,$Estadoad)
 	{
 		$statement=$this->db->prepare("UPDATE usuarios SET Nombreusu= :Nombread, Aoellidousu=: Apellidoad, Usuario=: Usuarioad, Passwordusu=: Passwordad, Estado=:Estadoad WHERE id_usuario=$Id");
-		$statement->binParam(':Id', $Id);
-		$statement->binParam(':Nombread',$Nombread);
-		$statement->binParam(':Apellidoad', $Apellidoad);
-		$statement->binParam(':Usuarioad', $Usuarioad);
-		$statement->binParam(':passwordad', $passwordad);
-		$statement->binParam(':Estadoad', $Estadoad);
+		$statement->bindParam(':Id', $Id);
+		$statement->bindParam(':Nombread',$Nombread);
+		$statement->bindParam(':Apellidoad', $Apellidoad);
+		$statement->bindParam(':Usuarioad', $Usuarioad);
+		$statement->bindParam(':passwordad', $passwordad);
+		$statement->bindParam(':Estadoad', $Estadoad);
 		if($statement->binParam())
 		{
 			header('Location: ../pages/idex.php');
