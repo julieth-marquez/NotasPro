@@ -1,25 +1,25 @@
 <?php
-include_once('../conexion.php');
-class Materias extends Conexion();
+include_once('../../conexion.php');
+class Materias extends Conexion
 {
 	public function __construct()
 	{
 		$this->db = parent::__construct();
 	}
 	//inserta una materia
-	public function agregarmate add($Nombremater)
+	public function agregarmateadd($Nombremater)
 	{
-		$statement = $this->bd->prepare("INSERT INTO  materias (Nombremate) values(:Nombremater)");
+		$statement = $this->db->prepare("INSERT INTO  materias (Nombremate) values(:Nombremater)");
 
-		$statement->binParam(":Nombremater",$Nombremater);
+		$statement->bindParam(":Nombremater",$Nombremater);
 		if($statement->execute())
 		{
 			echo "Materia registrado";
-			header('Location:  ../pages/idex.php')
+			header('Location:  ../pages/index.php');
 		}else
 		{
 			echo "No se puede realizar el registro";
-			header('Location: ../pages/agregar.php')
+			header('Location: ../pages/agregar.php');
 		}
 	}
 	//funcion para mostrar o seleccionar todos los usuarios con el rol administrador 

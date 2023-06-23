@@ -1,31 +1,31 @@
 <?php
-include_once('../conexion.php');
-class Estudiantes extends Conexion();
+include_once('../../conexion.php');
+class Estudiantes extends Conexion
 {
 	public function __construct()
 	{
 		$this->db = parent::__construct();
 	}
 	//inserta un estudiante
-	public function agregarest add($Nombreadm,$Apellidoadm,$Documentoadm,$Correoadm,$Materiaadm,$Docenteadm,$Promedioadm)
+	public function agregarestadd($Nombreadm,$Apellidoadm,$Documentoadm,$Correoadm,$Materiaadm,$Docenteadm,$Promedioadm)
 	{
-		$statement = $this->bd->prepare("INSERT INTO  estudiantes (Nombreest ,Apellidoest,Documentoest,Correoest,Materia,Docente,Promedio) values(:Nombreadm, :Apellidoadm, :Documentoadm, :Correoadm, :Materiaadm, :Docenteadm, :Promedioadm)");
+		$statement = $this->db->prepare("INSERT INTO  estudiantes (Nombreest ,Apellidoest,Documentoest,Correoest,Materia,Docente,Promedio ) values(:Nombreadm, :Apellidoadm, :Documentoadm, :Correoadm, :Materiaadm, :Docenteadm, :Promedioadm)");
 
-		$statement->binParam(":Nombreadm",$Nombreadm);
-		$statement->binParam(":Apellidoadm",$Apellidoadm);
-		$statement->binParam(":Documentoadm",$Documentoadm);
-		$statement->binParam(":Correoadm",$Correoadm);
-		$statement->binParam(":Materiaadm",$Materiaadm);
-		$statement->binParam(":Docenteadm",$Docenteadm);
-		$statement->binParam(":Promedioadm",$Promedioadm);
+		$statement->bindParam(':Nombreadm',$Nombreadm);
+		$statement->bindParam(':Apellidoadm',$Apellidoadm);
+		$statement->bindParam(':Documentoadm',$Documentoadm);
+		$statement->bindParam(':Correoadm',$Correoadm);
+		$statement->bindParam(':Materiaadm',$Materiaadm);
+		$statement->bindParam(':Docenteadm',$Docenteadm);
+		$statement->bindParam(':Promedioadm',$Promedioadm);
 		if($statement->execute())
 		{
 			echo "Estudiante registrado";
-			header('Location:  ../pages/idex.php')
+			header('Location:  ../pages/index.php');
 		}else
 		{
 			echo "No se puede realizar el registro";
-			header('Location: ../pages/agregar.php')
+			header('Location: ../pages/agregar.php');
 		}
 	}
 	//funcion para mostrar o seleccionar todos los estudiantes con el rol de estudiante 

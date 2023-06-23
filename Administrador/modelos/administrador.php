@@ -20,7 +20,7 @@ class Administrador extends Conexion
 		if($statement->execute())
 		{
 			echo "Usuario registrado";
-			header('Location:  ../pages/idex.php');
+			header('Location:  ../pages/index.php');
 		}else
 		{
 			echo "No se puede realizar el registro";
