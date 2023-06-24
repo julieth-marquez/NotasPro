@@ -1,0 +1,79 @@
+body{
+	background-image: radial-gradient(circle at 50% -20.71%, #00fbc2  0,
+	 #a77dfa 25%, #c14cfc 37.5%, #a77dfa 50%, #c14cfc  62.5%, #00fbc2  75%, #a77dfa 87.5%,
+	 #c14cfc 100%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	flex-direction: column;
+}
+*{
+
+	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-family: 'PT Sans', sans-serif;
+	box-sizing: border-box;
+
+}
+
+
+form{
+
+	width: 600px;
+	border: 2px  solid black;
+	padding: 3rem;
+	background-color: whitesmoke;
+	border: none;
+	border-radius: 20px;
+}
+
+h1{
+
+	display: block;
+	border: 2px solid black;
+	width: 95%;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 10px;
+	text-align-last: center;
+
+}
+
+label{
+
+	color: black;
+	font-size: 18px;
+	padding: 10px;
+	font-weight: 300;
+
+}
+
+ input{
+
+ 	display: block;
+ 	border: 2px solid black;
+ 	width: 95%;
+ 	padding: 10px;
+ 	margin: 10px;
+ 	border-radius: 10px;
+ }
+
+button{
+
+	float: right;
+	background-color: white;
+	padding: .5rem;
+	color: black;
+	border: 2px solid black;
+	width: 40%;
+	border-radius: 5px;
+	margin-right: 130px;
+	text-decoration: none;
+}
+
+button:hover{
+
+	background-color: white;
+	color: black;
+}
