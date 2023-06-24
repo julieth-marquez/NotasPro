@@ -9,17 +9,6 @@
 <body>
 	<div class="container">
 	<section class="form-register">
-		<?php
-	require_once('../../conexion.php');
-	require_once('../modelos/administrador.php');
-
-	$Id = $_GET['Id'];
-	$admin = new Administrador();
-	$row=$admin->getidad($Id);
-
-	if($row){
-
-	?>	
 		<h4>ACTUALIZAR DATOS DE USUARIO</h4>
 		<form action="../controladores/editarusuarios.php" method="post">
 			<input type="hidden" name="Id" value="<?php echo $Id ?>">
@@ -60,7 +49,17 @@
 		<input class="btn btn-danger" type="submit" name="accion" value="Actualizar">
 </form>
 <?php } ?>
+<?php
+require_once('../../conexion.php');
+require_once('../modelos/administrador.php');
 
+$Id = $_GET['Id'];
+$admin = new Administrador();
+$row->$admin->getidad($Id);
+
+if($row){
+
+?>	
 	</section>
 </div>
 </body>
