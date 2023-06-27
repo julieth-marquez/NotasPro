@@ -37,10 +37,10 @@ class Docentes extends Conexion
  //Función para seleccionar a todos los usuarios con el rol docentes 
  	 public function getdocen()
 	{
-		$row = null; 
-		$statement=$this->db->prepare("SELECT * FROM docentes");
+		$row = null;
+		$statement = $this->db->prepare("SELECT * FROM docentes WHERE Perfil = 'Docente'");
 		$statement->execute();
-		while($resul = $statement->feth()) 
+		while ($resul = $statement->fetch()) 
 		{
 			$row[]=$resul;
 		}
@@ -50,19 +50,21 @@ class Docentes extends Conexion
 	public function getiddocen($Id)
 	{
 		$row = null;
-		$statement=$this->db->prepare("SELECT * FROM docentes WHERE id_docente= :$Id");
-		$statement->bindParam(':Id',$Id);
+		$statement=$this->db->prepare("SELECT * FROM docentes WHERE id_docente=:Id");
+		$statement->bindParam(':Id' ,$Id);
 		$statement->execute();
-		while ($resul = $statement->feth()) 
-		{
-			$row=$resul;
-		}
-		return $row;
+
+		//obtener los resultados ustilizados fetch()
+		$resultado = $statement->fetch(PDO::FETCH_ASSOC);
+
+		//Decolver los resultados
+		return $resultado;
+		
 	}
 //Función para selecionar los datos del docente 
-	public function updatedocen($Id,$Nombredocen,$Apellidodocen,$Documentodocen,$Correodocen, $Materiadocen,$Notasdocen)
+	public function updatedocen($Id,$Nombredocen,$Apellidodocen,$Documentodocen,$Correodocen, $Materiadocen,$Usuariodocen,$Passworddocen,$Perfildocen,$Estadodocen)
 	{
-		$statement=$this->db->prepare("UPDATE docentes SET Nombredoc=:Nombredocen,Apellidodoc=:Apellidodocen,Documentodoc=:Documentodocen,Correodoc=:Correodocen,Materiadoc=:Materiadocen,Notasmate=:Notasdocen WHERE id_docente=$Id");
+		$statement=$this->db->prepare("UPDATE docentes SET id_docente=:Id, Nombredoce=:Nombredocen,Apellidodoce=:Apellidodocen,Documentodoce=:Documentodocen,Correodoce=:Correodocen,Materiadoce=:Materiadocen, Usuariodoce=:Usuariodocen, Passworddoce=:Passworddocen,Perfil=:Perfildocen,Estadodoce=:Estadodocen WHERE id_docente=$Id");
 
 		$statement->bindParam(':Id',$Id);
 		$statement->bindParam(':Nombredocen',$Nombredocen);
@@ -70,7 +72,10 @@ class Docentes extends Conexion
 		$statement->bindParam(':Documentodocen',$Documentodocen);
 		$statement->bindParam(':Correodocen',$Correodocen);
 		$statement->bindParam(':Materiadocen',$Materiadocen);
-		$statement->bindParam(':Notasdocen',$Notasdocen);
+		$statement->bindParam(':Usuariodocen',$Usuariodocen);
+		$statement->bindParam(':Passworddocen',$Passworddocen);
+		$statement->bindParam(':Perfildocen',$Perfildocen);
+		$statement->bindParam(':Estadodocen',$Estadodocen);
 		if($statement->execute())
 		{
 			header('Location: ../pages/index.php');

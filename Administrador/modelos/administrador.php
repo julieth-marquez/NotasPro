@@ -68,24 +68,24 @@ class Administrador extends Conexion
 	}
 
 	//funcion para actualizar los datos del usuario 
-	public function updateadadd($Id,$Nombread,$Apellidoad,$Usuarioad,$passwordad,$Perfil,$Estadoad)
-	{
-		$statement=$this->db->prepare("UPDATE usuarios SET id_usuario= :Id, Nombreusu= :Nombread, Aoellidousu=: Apellidoad, Usuario=: Usuarioad, Passwordusu=: Passwordad, Perfil=:Perfil, Estado=:Estadoad WHERE id_usuario=$Id");
-		$statement->bindParam(':Id', $Id);
-		$statement->bindParam(':Nombread',$Nombread);
-		$statement->bindParam(':Apellidoad', $Apellidoad);
-		$statement->bindParam(':Usuarioad', $Usuarioad);
-		$statement->bindParam(':Passwordad', $Passwordad);
-		$statement->bindParam(':Perfil', $Perfil);
-		$statement->bindParam(':Estadoad', $Estadoad);
-		if($statement->execute())
-		{
-			header('Location: ../pages/agregar.php');
-		}else
-		{
-			header('Location: ../pages/editar.php');
-		}
-	}
+	public function updatead($Id,$Nombread, $Apellidoad, $Usuarioad, $Passwordad,$perfil,$Estadoad){
+
+        $statement=$this->db->prepare("UPDATE usuarios SET id_usuario=:Id, Nombreusu=:Nombread, Aoellidousu=:Apellidoad,Usuario=:Usuarioad, Passwordusu=:Passwordad,Perfil=:Perfil, Estado=:Estadoad WHERE id_usuario=$Id" );
+        $statement->bindparam(":Id",$Id);
+        $statement->bindParam(":Nombread", $Nombread);
+        $statement->bindParam(":Apellidoad", $Apellidoad);
+        $statement->bindParam(":Usuarioad", $Usuarioad);
+        $statement->bindParam(":Passwordad", $Passwordad);
+        $statement->bindParam(":Perfil", $perfil);
+        $statement->bindParam(":Estadoad", $Estadoad);
+        if($statement->execute()){
+            echo"Usuario actualizado";
+            header('Location: ../Pages/index.php');
+        }else{
+            echo "No se pudo realizar la actualizacion";
+            header('Location: ../Pages/editar.php');
+        }
+    }
 	//funcion para eliminar un usuario
 	public function deletead($Id)
 	{
@@ -97,7 +97,7 @@ class Administrador extends Conexion
 			header('Location: ../pages/agregar.php');
 		}else
 		{
-			echo "El Usuariono se puede eliminar";
+			echo "El Usuario no se puede eliminar";
 			header('Location: ../pages/eliminar.php');
 		}
 	}

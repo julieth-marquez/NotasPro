@@ -12,6 +12,6 @@ $Passwordusu = $_POST['txtcontraseña'];
 $Perfil = $_POST['txtperfil'];
 $Estadousu = $_POST['txtestado'];
 
-$admin->updateadadd($Id,$Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$Perfil,$Estadousu);
+$admin->updatead($Id,$Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$Perfil,$Estadousu);
 }
 ?>
