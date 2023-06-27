@@ -44,8 +44,8 @@ foreach($datos as $datos){
 <td><?php echo $datos['Usuario'] ?></td>
 <td><?php echo $datos['Perfil'] ?></td>
 <td><?php echo $datos['Estado'] ?></td>
-<td><a href="editar.php?Id=<?php echo $datos['id_usuario'] ?>" class="btn btn-danger">ACTUALIZAR</a></td>
-<td><a href="eliminar.php?Id=<?php echo $datos['id_usuario'] ?>" class="btn btn-primary">ELIMINAR</a></td>
+<td><a href="editar.php?Id=<?php echo $datos['id_usuario'] ?>" class="btn btn-danger">Actualizar</a></td>
+<td><a href="eliminar.php?Id=<?php echo $datos['id_usuario'] ?>" class="btn btn-primary">Eliminar</a></td>
 <?php } ?>
 
 </tr>
@@ -59,4 +59,4 @@ foreach($datos as $datos){
 </section>
 </div>
 </body>
-</html
+</html>

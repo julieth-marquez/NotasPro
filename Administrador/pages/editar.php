@@ -16,7 +16,7 @@
 	require_once('../modelos/administrador.php');
 
 	$Id = $_GET['Id'];
-	$admmin = new Administrador();
+	$admin = new Administrador();
 	$row=$admin->getidad($Id);
 
 	if($row){
