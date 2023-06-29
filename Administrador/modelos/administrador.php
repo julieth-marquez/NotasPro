@@ -89,12 +89,12 @@ class Administrador extends Conexion
 	//funcion para eliminar un usuario
 	public function deletead($Id)
 	{
-		$statement=$this->db->prepare("DELETE * FROM usuarios WHERE id_usuario=:Id");
-		$statement->binParam(':Id',$Id);
+		$statement=$this->db->prepare("DELETE  FROM usuarios WHERE id_usuario=:Id");
+		$statement->bindParam(':Id',$Id);
 		if($statement->execute())
 		{
 			echo "Usuario eliminado";
-			header('Location: ../pages/agregar.php');
+			header('Location: ../pages/index.php');
 		}else
 		{
 			echo "El Usuario no se puede eliminar";

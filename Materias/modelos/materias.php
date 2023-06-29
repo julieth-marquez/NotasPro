@@ -38,38 +38,42 @@ class Materias extends Conexion
 	public function getidmateria($Id)
 	{
 		$row = null;
-		$statement=$this->db->prepare("SELECT * FROM materias WHERE   id_materia=:$Id");
-		$statement->binParam(':$Id' ,$Id);
+		$statement=$this->db->prepare("SELECT * FROM materias WHERE id_materia=:Id");
+		$statement->bindParam(':Id' ,$Id);
 		$statement->execute();
-		while ($resul = $statement->fetch()) 
-		{
-			$row=$resul;
-		}
-		return $row;
+
+		//obtener los resultados ustilizados fetch()
+		$resultado = $statement->fetch(PDO::FETCH_ASSOC);
+
+		//Decolver los resultados
+		return $resultado;
+		
+	
 	}
 	//funcion para actualizar los datos del usuario 
 	public function updatemateria($Id,$Nombremater)
 	{
-		$statement=$this->db->prepare("UPDATE materias SET Nombremate= :Nombremater WHERE id_materia=$Id");
-		$statement->binParam(':Id', $Id);
-		$statement->binParam(':Nombremater',$Nombremater);
-		if($statement->binParam())
+		$statement=$this->db->prepare("UPDATE materias SET id_materia=:Id, Nombremate=:Nombremater WHERE id_materia=$Id");
+
+		$statement->bindParam(':Id',$Id);
+		$statement->bindParam(':Nombremater',$Nombremater);
+		if($statement->execute())
 		{
-			header('Location: ../pages/idex.php');
+			header('Location: ../pages/index.php');
 		}else
 		{
-			header('Location: ../pages/editar.php');
+			header('Location:../pages/editar.php');
 		}
 	}
 	//funcion para eliminar un usuario
 	public function deletemateria($Id)
 	{
-		$statement=$this->db->prepare("DELETE * FROM materias WHERE id_materia=:Id");
-		$statement->binParam(':Id',$Id);
+		$statement=$this->db->prepare("DELETE  FROM materias WHERE id_materia=:Id");
+		$statement->bindParam(':Id',$Id);
 		if($statement->execute())
 		{
-			echo "Mteria eliminado";
-			header('Location: ../pages/idex.php');
+			echo "Materia eliminado";
+			header('Location: ../pages/index.php');
 		}else
 		{
 			echo "La Materia no se puede eliminar";

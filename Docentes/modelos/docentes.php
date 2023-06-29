@@ -20,8 +20,7 @@ class Docentes extends Conexion
 		$statement->bindParam(":Passworddocen",$Passworddocen);
 		$statement->bindParam(":Perfildocen",$Perfildocen);
 		$statement->bindParam(":Estadodocen",$Estadodocen);
-
-		if($statement->execute())
+	if($statement->execute())
 		{
 			echo"Docente registrado";
 			header('Location: ../pages/index.php');
@@ -38,13 +37,14 @@ class Docentes extends Conexion
  	 public function getdocen()
 	{
 		$row = null;
-		$statement = $this->db->prepare("SELECT * FROM docentes WHERE Perfil = 'Docente'");
+		$statement = $this->db->prepare("SELECT * FROM docentes WHERE Perfil ='Docentes'");
 		$statement->execute();
 		while ($resul = $statement->fetch()) 
 		{
 			$row[]=$resul;
 		}
 		return $row;
+
 	}
 //Función para selecionar un docente por su ID 
 	public function getiddocen($Id)
@@ -88,7 +88,7 @@ class Docentes extends Conexion
 //Función para eliminar un docente 
 	public function deletedocen($Id)
 	{
-		$statement=$this->db->prepare("DELETE * FROM docentes WHERE id_docente=:Id");
+		$statement=$this->db->prepare("DELETE  FROM docentes WHERE id_docente=:Id");
 		$statement->bindParam(':Id',$Id);
 		if ($statement->execute()) 
 		{

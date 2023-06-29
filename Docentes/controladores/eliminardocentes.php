@@ -1,20 +1,20 @@
 <?php
 require_once('../../conexion.php');
-require_once('../modelos/administrador.php');
+require_once('../modelos/docentes.php');
 
 //Verificacion del formulario enviado
-$ad= new Administrador();
+$do= new Docentes();
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 
 	$Id = $_POST['Id'];
-	$resultado=$ad->deletead($Id);
+	$resultado=$do->deletedocen($Id);
 	if($result)
 	{
-		print "<script>alert('Usuario Eliminado');
+		print "<script>alert('Docente Eliminado');
 		window.location='../pages/index.php';</script>";
 	}else {
-		print "<script>alert('Usuario No Eliminado');
+		print "<script>alert('Docente No Eliminado');
 		window.location='../pages/eliminar.php';</script>";
 	}
 }
