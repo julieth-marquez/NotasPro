@@ -66,7 +66,7 @@
 
 	<hr>
 	</br>
-	<button type="submit" >Consultar</button>
+	<button type="submit" >Agregar</button>
 
 </form>
 </body>

@@ -1,7 +1,7 @@
 body{
-	background-image: radial-gradient(circle at 50% -20.71%, #8860f7 0,
-	#e769f5 25%, #e7b1f2 37.5%, #e490f5 50%, #b87af5 62.5%, #b252fa 75%, #e490f5  87.5%,
-	#9e2cf5 100%);
+	background-image: radial-gradient(circle at 50% -20.71%, #a6ffa7 0,
+	 #76ffb0 25%, #54ffb5 37.5%, #08ffbb 50%, #00fbc2 62.5%, #00f8ca 75%, #00f4d3 87.5%,
+	 #00f1dc 100%);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -22,7 +22,7 @@ form{
 
 	width: 600px;
 	border: 2px  solid black;
-	padding: 3rem;
+	padding: 2rem;
 	background-color: whitesmoke;
 	border: none;
 	border-radius: 20px;

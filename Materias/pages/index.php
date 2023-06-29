@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-<h1 style="color:goldenrod;text-align: center;">LISTADO DE MATERIAS</h1>
+<h1 style="color:green;text-align: center;">LISTADO DE MATERIAS</h1>
 <div col="col-auto-mt-5">
 <table class="table table-dark table-hover">
 <tr>
@@ -31,10 +31,10 @@ $datos = $obj->getmateria();
 foreach($datos as $datos){
 ?>
 <tr>
-<td><?php echo $datos['id_materia '] ?></td>
+<td><?php echo $datos['id_materia'] ?></td>
 <td><?php echo $datos['Nombremate'] ?></td>
 
-<td><a href="editar.php?Id=<?php echo $datos['id_materia '] ?>" class="btn btn-danger">Actualizar</a></td>
+<td><a href="editar.php?Id=<?php echo $datos['id_materia'] ?>" class="btn btn-danger">Actualizar</a></td>
 <td><a href="eliminar.php?Id=<?php echo $datos['id_materia'] ?>" class="btn btn-primary">Eliminar</a></td>
 <?php } ?>
 

@@ -9,7 +9,7 @@ if($_POST)
  $Nombremate = $_POST['txtnombremateria'];
 
 
-$materia->updatead($Id, $Nombremate);
+$materia->updatemateria($Id, $Nombremate);
 
 }
 ?>

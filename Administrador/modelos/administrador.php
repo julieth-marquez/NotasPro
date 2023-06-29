@@ -102,12 +102,12 @@ public function __construct()
 //función para eliminar un usuario 
 	public function deletead($Id)
 	{
-		$statement=$this->db->prepare("DELETE * FROM usuarios WHERE id_usuario=:Id");
+		$statement=$this->db->prepare("DELETE  FROM usuarios WHERE id_usuario=:Id");
 		$statement->bindParam(':Id',$Id);
 		if ($statement->execute()) 
 		{
 			echo"Usuario eliminado";
-			header('Location:../pages/agregar.php');
+			header('Location:../pages/index.php');
 		}else
 		{
 			echo"El Usuario no se puede eliminar";

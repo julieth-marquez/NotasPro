@@ -1,8 +1,7 @@
 body{
 	background-image: radial-gradient(circle at 50% -20.71%, #8860f7 0,
 	#e769f5 25%, #e7b1f2 37.5%, #e490f5 50%, #b87af5 62.5%, #b252fa 75%, #e490f5  87.5%,
-	#9e2cf5 100%);
-	display: flex;
+	#9e2cf5 100%);	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;

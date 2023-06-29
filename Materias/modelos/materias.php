@@ -92,12 +92,12 @@ class Materias extends Conexion
 
 	public function deletemateria($Id)
 	{
-		$statement=$this->db->prepare("DELETE * FROM materias WHERE id_materia=:Id");
+		$statement=$this->db->prepare("DELETE FROM materias WHERE id_materia=:Id");
 		$statement->bindParam(':Id',$Id);
 		if ($statement->execute()) 
 		{
 			echo"Materia eliminada";
-			header('Location:../pages/agregar.php');
+			header('Location:../pages/index.php');
 		}else
 		{
 			echo"La materia no se puede eliminar";
