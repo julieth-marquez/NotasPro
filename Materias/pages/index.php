@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-<h1 style="color:green;text-align: center;">LISTADO DE MATERIAS</h1>
+<h1 style="color:orange;text-align: center;">LISTADO DE MATERIAS</h1>
 <div col="col-auto-mt-5">
 <table class="table table-dark table-hover">
 <tr>

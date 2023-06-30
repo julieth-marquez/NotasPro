@@ -5,12 +5,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="estilos3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<title>Inicio de sesion</title>
+	<title>Inicio de sesion Estudiantes</title>
 </head>
 <body>
+
+<?php
+
+require_once('../../Conexion.php');
+require_once('../../consultas.php');
+require_once('../modelos/estudiantes.php');
+
+	$consul = new Consulta();
+?>
+
 <form action="../controladores/agregarusuarios.php" method="POST">
 
-	<h1>INICIAR SESIÓN</h1>
+	<h1>INICIO SESIÓN ESTUDIANTES</h1>
 	<br>
 	<hr>
 </br>
@@ -33,18 +43,48 @@
 
 	<i class="fa-solid fa-envelope"></i>
 	<label>Correo</label>
-	<input type="text" class="form-control" name="txtcorreo" placeholder="Ingrese su contraseña">
+	<input type="text" class="form-control" name="txtcorreo" placeholder="Ingrese su email">
 	</br>
 
 	<i class="fa-solid fa-book"></i>
-	<label for="perfil">Materias</label>
+	<label for="perfil">Materia</label>
 	<select class="from-select" name="txtmateria" aria-label="Default select example">
+		<option>Selecicionar</option>
+		<?php
+
+		$mate = $consul->getmaterias();
+		if ($mate != null ) 
+		{
+			foreach($mate as $ma)
+			{
+		?>
+		<option value="<?php echo $ma['Nombremate']?>"><?php echo $ma['Nombremate']; ?></option>
+		<?php
+
+		}
+			}
+
+		?>
 	</select>
 	</br>
 
 	<i class="fa-solid fa-user"></i>
 	<label for="perfil">Docente</label>
 	<select class="from-select" name="txtdocente" aria-label="Default select example">
+		<option>Selecicionar</option>
+		<?php
+			$doce = $consul->getdocentes();
+				if ($doce != null) 
+				{
+					foreach($doce as $do) {
+
+		?>
+	<option value="<?php echo $ma['Nombreusu']?>"><?php echo $ma['Nombreusu']; ?></option>
+		<?php
+
+		}
+			}
+		?>
 	
 	</select>
 	<br>
@@ -55,7 +95,6 @@
 	<label>Promedio</label>
 	<input type="text" class="form-control" name="txtpromedio" placeholder="Promedio">
 	<br>
-	</br>
 
 	<i class="fa-solid fa-calendar-days"></i>
 	<label>Fecha registro</label>
